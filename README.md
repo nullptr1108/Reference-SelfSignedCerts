@@ -37,6 +37,8 @@ IP.4 = 10.0.75.0
 ## Powershell Script
 A script was written to handle the creation of the certificate files. This uses the Git for Windows installation to access the openssl module. This module is expected to be on developer machines as a standard installed tool but if it is not present then the script will need to be pointed to a copy of the OpenSSL.exe file
 
+Since each solution should have its own development certificate the expectaed usage will be a copy of the script and configuration file per solution. This way the end point projects can be uniquely listed and added in as alternative subjects. Currently the script will not add the certificate to the Trusted Root Certificate Authorities store and this needs to be done manually. This will require admin privileges in Windows to accomplish. 
+
 Once the certificate files are created then they will be copied into the location that Visual Studio expects them to be and referenced as the docker container mount point expects to find them. The *.crt file will also be copied into a default location that the dockerfile will expect the file to exist in.
 ```
 $winPath = "$env:APPDATA\ASP.NET\https\$pfxFile"
