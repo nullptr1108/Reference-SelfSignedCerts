@@ -1,6 +1,6 @@
 $array = @("Health.Monitor", "Svc.A", "Svc.B", "Svc.C")
 
-$slnName = "Reference-MSA-DotNet-AADB2C"
+$slnName = "Reference-MSA-DotNet-OAuth-AAD"
 
 $pfxFile = "$slnName - ContainerDev.pfx"
 $crtFile = "$slnName - ContainerDev.crt"
