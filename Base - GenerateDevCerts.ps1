@@ -10,7 +10,7 @@ $pword = New-Guid
 
 $env:path = $env:path + ";C:\Program Files\Git\usr\bin"
 
-openssl req -x509 -newkey rsa:4096 -days 730 -keyout $keyPemFile -out $certPemFile -nodes -subj "/C=US/ST=TX/L=DFW/O=NullPtrLtd/OU=AppDev/CN=NullPtrLtd" -reqexts "v3_req" -config .\Base - OpenSSLConfig.cnf
+openssl req -x509 -newkey rsa:4096 -days 730 -keyout $keyPemFile -out $certPemFile -nodes -subj "/C=US/ST=TX/L=DFW/O=NullPtrLtd/OU=AppDev/CN=NullPtrLtd" -reqexts "v3_req" -config ".\Base - OpenSSLConfig.cnf"
 openssl pkcs12 -export -out $pfxFile -inkey $keyPemFile -in $certPemFile -password pass:$pword
 openssl pkcs12 -in $pfxFile -nocerts -nodes -out $keyFile -password pass:$pword
 openssl pkcs12 -in $pfxFile -clcerts -nokeys -out $crtFile -password pass:$pword
